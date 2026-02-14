@@ -177,8 +177,8 @@ export default function MyNote() {
             <p>{note.des}</p>
             <p>Tags: {note.tag}</p>
             <div className={styles.noteButtons}>
-              <button className={`${styles.buttonPrimary} ${styles.buttonBlue}`} onClick={() => handleEditNote(index)}>Edit</button>
-              <button className={`${styles.buttonPrimary} ${styles.buttonRed}`} onClick={() => handleDeleteNote(index)}>Delete</button>
+              <button className={`${styles.buttonPrimary} ${styles.buttonBlue}`} onClick={() => handleEditNote(index)}>Edit Note</button>
+              <button className={`${styles.buttonPrimary} ${styles.buttonRed}`} onClick={() => handleDeleteNote(index)}>Delete Note</button>
             </div>
           </div>
         )) : <p>No notes found.</p>}
