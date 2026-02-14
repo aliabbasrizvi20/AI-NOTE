@@ -4,5 +4,5 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  res.status(200).json({ message: "AI API working" });
+  res.status(200).json({ message: "User API working" });
 }
