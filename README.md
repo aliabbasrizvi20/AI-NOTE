@@ -10,7 +10,7 @@ Note Creation: Create, view, edit, and delete notes.
 
 AI Features (Demo):
 
-AI Summarize
+AI Summarize App
 
 AI Improve
 
