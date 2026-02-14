@@ -1,0 +1,65 @@
+.container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.buttonPrimary {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.buttonRed {
+  background-color: #ef4444;
+}
+
+.buttonBlue {
+  background-color: #6366f1;
+}
+
+.buttonGreen {
+  background-color: #10b981;
+}
+
+.noteCard {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: #f3f4f6;
+}
+
+.noteButtons {
+  margin-top: 8px;
+  display: flex;
+  gap: 5px;
+}
+
+.noteForm {
+  margin-bottom: 15px;
+}
+
+.textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 100%;
+  margin-bottom: 10px;
+}
