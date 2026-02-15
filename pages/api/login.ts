@@ -17,10 +17,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return res.status(401).json({ error: "Invalid credentials" });
 
-    // generate token with user info
+
     const token = generateToken({ _id: user._id.toString(), name: user.name, email: user.email });
 
-    // send back token AND user info separately
+    
     res.status(200).json({ token, name: user.name, email: user.email });
   } catch (err) {
     console.error(err);

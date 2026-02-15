@@ -9,8 +9,16 @@ export default function RegisterPage() {
   const [registerName, setRegisterName] = useState("");
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPass, setRegisterPass] = useState("");
+  const [statusMsg, setStatusMsg] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleRegister = async () => {
+    if (!registerName || !registerEmail || !registerPass) {
+      setStatusMsg("Please fill all fields");
+      return;
+    }
+    setLoading(true);
+    setStatusMsg("Registering...");
     try {
       const response = await fetch("/api/register", {
         method: "POST",
@@ -25,19 +33,19 @@ export default function RegisterPage() {
       const data = await response.json();
 
       if (response.ok) {
-        alert("Registered Successfully!");
-        console.log("Token:", data.token);
-        router.push("/login"); // Redirect to login page
+        setStatusMsg("Registered successfully! Redirecting...");
+        setTimeout(() => router.push("/login"), 1000);
       } else {
-        alert(data.error);
+        setStatusMsg(data.error || "Registration failed");
       }
     } catch (error) {
       console.error(error);
-      alert("Something went wrong. Please try again.");
+      setStatusMsg("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
-  // Inline styles
   const containerStyle = {
     maxWidth: "400px",
     margin: "50px auto",
@@ -78,6 +86,12 @@ export default function RegisterPage() {
     fontWeight: "bold" as "bold",
   };
 
+  const statusStyle = {
+    textAlign: "center" as "center",
+    color: "#333",
+    fontSize: "14px",
+  };
+
   return (
     <div style={containerStyle}>
       <h2 style={headerStyle}>Create Your Account</h2>
@@ -111,9 +125,11 @@ export default function RegisterPage() {
           (e.currentTarget.style.backgroundColor = "#6366F1")
         }
         onClick={handleRegister}
+        disabled={loading}
       >
-        Register
+        {loading ? "Registering..." : "Register"}
       </button>
+      {statusMsg && <p style={statusStyle}>{statusMsg}</p>}
     </div>
   );
 }

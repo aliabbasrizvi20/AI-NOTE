@@ -1,65 +1,202 @@
-.container {
-  padding: 20px;
-  font-family: Arial, sans-serif;
+:global(*) {
+  box-sizing: border-box;
 }
+
+.container {
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #f5f7fa, #e0f7fa);
+  font-family: "Segoe UI", sans-serif;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* HEADER */
 
 .header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
   align-items: center;
+  margin-bottom: 30px;
+  color: #333;
+  font-size: 18px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
+
+/* INPUTS */
 
 .input {
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  margin-bottom: 10px;
   width: 100%;
-}
-
-.buttonPrimary {
-  padding: 8px 12px;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  color: white;
-}
-
-.buttonRed {
-  background-color: #ef4444;
-}
-
-.buttonBlue {
-  background-color: #6366f1;
-}
-
-.buttonGreen {
-  background-color: #10b981;
-}
-
-.noteCard {
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  padding: 15px;
-  margin-bottom: 10px;
-  background-color: #f3f4f6;
-}
-
-.noteButtons {
-  margin-top: 8px;
-  display: flex;
-  gap: 5px;
-}
-
-.noteForm {
+  padding: 12px 15px;
   margin-bottom: 15px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  outline: none;
+  font-size: 14px;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.25s;
+}
+
+.input:focus {
+  border-color: #80deea;
+  box-shadow: 0 0 10px rgba(128, 222, 234, 0.3);
 }
 
 .textarea {
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
   width: 100%;
-  margin-bottom: 10px;
+  min-height: 100px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  outline: none;
+  margin-bottom: 15px;
+  font-size: 14px;
+  background: #fff;
+  resize: vertical;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.25s;
+}
+
+.textarea:focus {
+  border-color: #80deea;
+  box-shadow: 0 0 10px rgba(128, 222, 234, 0.3);
+}
+
+/* NOTE FORM */
+
+.noteForm {
+  background: #ffffffcc;
+  backdrop-filter: blur(8px);
+  padding: 20px;
+  border-radius: 18px;
+  margin-bottom: 25px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* BUTTONS */
+
+.buttonPrimary {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 5px 5px 5px 0;
+  font-size: 14px;
+  color: #fff;
+}
+
+.buttonPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.buttonPrimary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.buttonBlue {
+  background: #4fc3f7;
+}
+
+.buttonGreen {
+  background: #26a69a;
+}
+
+.buttonRed {
+  background: #ef5350;
+}
+
+/* NOTE CARD */
+
+.noteCard {
+  background: #ffffffcc;
+  backdrop-filter: blur(8px);
+  padding: 20px;
+  border-radius: 18px;
+  margin-bottom: 20px;
+  color: #333;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+  word-wrap: break-word;
+}
+
+.noteCard:hover {
+  transform: translateY(-5px);
+}
+
+.noteCard h4 {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.noteCard p {
+  margin: 5px 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* NOTE BUTTON AREA */
+
+.noteButtons {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* AI BUTTONS */
+
+.ai-features button {
+  background: linear-gradient(45deg, #ffb74d, #4fc3f7);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 13px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.ai-features button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.ai-features button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* EMPTY MESSAGE */
+
+.container p {
+  margin-top: 20px;
+  color: #555;
+  font-weight: 500;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .buttonPrimary {
+    width: 100%;
+  }
+
+  .ai-features {
+    flex-direction: column;
+  }
+
+  .ai-features button {
+    width: 100%;
+  }
 }

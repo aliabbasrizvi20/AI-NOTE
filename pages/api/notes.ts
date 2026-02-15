@@ -1,4 +1,4 @@
-// /pages/api/notes.ts
+
 import { NextApiRequest, NextApiResponse } from "next";
 import { ConnectToDB } from "@/lib/db";
 import { NotesNote } from "@/lib/models/Note";
@@ -8,7 +8,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   try {
     await ConnectToDB();
 
-    const token = req.headers.authorization?.split(" ")[1]; // Bearer <token>
+    const token = req.headers.authorization?.split(" ")[1]; 
     if (!token) return res.status(401).json({ error: "Unauthorized" });
 
     const user = verifyToken(token);
@@ -16,13 +16,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     const userId = user.userId;
 
-    // GET all notes for this user
     if (req.method === "GET") {
       const notes = await NotesNote.find({ user: userId }).sort({ createdAt: -1 });
       return res.status(200).json(notes);
     }
 
-    // POST: create new note
+    
     if (req.method === "POST") {
       const { title, des, tag } = req.body;
       if (!title || !des) return res.status(400).json({ error: "Title and description required" });
@@ -37,7 +36,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(201).json(newNote);
     }
 
-    // PUT: update note
+    
     if (req.method === "PUT") {
       const { id, title, des, tag } = req.body;
       if (!id || !title || !des) return res.status(400).json({ error: "ID, title, description required" });
@@ -53,11 +52,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(200).json(note);
     }
 
-    // DELETE: delete note
+    
     if (req.method === "DELETE") {
-  // Parse JSON manually
+
   let body = req.body;
-  if (typeof body === "string") body = JSON.parse(body); // Sometimes it's a string
+  if (typeof body === "string") body = JSON.parse(body); 
 
   const { id } = body;
   if (!id) return res.status(400).json({ error: "ID required" });
