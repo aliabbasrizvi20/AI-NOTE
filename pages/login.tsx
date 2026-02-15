@@ -7,8 +7,8 @@ export default function LoginPage() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [status, setStatus] = useState(""); // new status message
-  const [loading, setLoading] = useState(false); // loading flag
+  const [status, setStatus] = useState(""); 
+  const [loading, setLoading] = useState(false); 
 
   const handleLogin = async () => {
     if (!email || !password) {

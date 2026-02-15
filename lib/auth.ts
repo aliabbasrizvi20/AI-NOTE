@@ -1,6 +1,6 @@
 
 import jwt from "jsonwebtoken";
-import { NoteUser } from "@/lib/models/User"; 
+
 
 const JWT_SECRET = process.env.JWT_SECRET!;
 
