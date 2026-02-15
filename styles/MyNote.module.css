@@ -11,7 +11,7 @@
   margin: auto;
 }
 
-/* HEADER */
+
 
 .header {
   display: flex;
@@ -24,7 +24,7 @@
   gap: 10px;
 }
 
-/* INPUTS */
+
 
 .input {
   width: 100%;
@@ -64,7 +64,7 @@
   box-shadow: 0 0 10px rgba(128, 222, 234, 0.3);
 }
 
-/* NOTE FORM */
+
 
 .noteForm {
   background: #ffffffcc;
@@ -75,7 +75,7 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
-/* BUTTONS */
+
 
 .buttonPrimary {
   padding: 8px 16px;
@@ -111,7 +111,7 @@
   background: #ef5350;
 }
 
-/* NOTE CARD */
+
 
 .noteCard {
   background: #ffffffcc;
@@ -140,7 +140,6 @@
   line-height: 1.5;
 }
 
-/* NOTE BUTTON AREA */
 
 .noteButtons {
   margin-top: 12px;
@@ -149,7 +148,6 @@
   gap: 8px;
 }
 
-/* AI BUTTONS */
 
 .ai-features button {
   background: linear-gradient(45deg, #ffb74d, #4fc3f7);
@@ -172,7 +170,7 @@
   cursor: not-allowed;
 }
 
-/* EMPTY MESSAGE */
+
 
 .container p {
   margin-top: 20px;
@@ -180,7 +178,6 @@
   font-weight: 500;
 }
 
-/* RESPONSIVE */
 
 @media (max-width: 768px) {
   .header {

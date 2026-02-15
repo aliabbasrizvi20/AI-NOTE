@@ -28,7 +28,7 @@ export default function MyNote() {
   const [aiLoadingIndex, setAiLoadingIndex] = useState<number | null>(null);
   const [editIndex, setEditIndex] = useState<number | null>(null);
 
-  const [statusMsg, setStatusMsg] = useState(""); // for logout or login feedback
+  const [statusMsg, setStatusMsg] = useState(""); 
   const [logoutLoading, setLogoutLoading] = useState(false);
 
   useEffect(() => {
@@ -58,7 +58,7 @@ export default function MyNote() {
     if (!noteTitle || !noteDes) return setStatusMsg("Please fill all fields");
 
     if (editIndex !== null) {
-      // Update note
+     
       const note = showAllNotes[editIndex];
 
       if (token) {
@@ -80,14 +80,14 @@ export default function MyNote() {
         updatedNotes[editIndex] = updatedNote;
         setShowAllNotes(updatedNotes);
       } else {
-        // Non-logged-in edit (just in local state)
+        
         const updatedNotes = [...showAllNotes];
         updatedNotes[editIndex] = { ...updatedNotes[editIndex], title: noteTitle, des: noteDes, tag: noteTag };
         setShowAllNotes(updatedNotes);
       }
       setEditIndex(null);
     } else {
-      // Add new note
+      
       if (token) {
         const res = await fetch("/api/notes", {
           method: "POST",
@@ -100,7 +100,7 @@ export default function MyNote() {
         const newNote = await res.json();
         setShowAllNotes([newNote, ...showAllNotes]);
       } else {
-        // Non-logged-in user: save note locally
+      
         const tempNote: Note = {
           _id: `temp-${Date.now()}`,
           title: noteTitle,
@@ -178,7 +178,7 @@ export default function MyNote() {
       setLogoutLoading(false);
       setStatusMsg("Logged out successfully!");
       router.push("/login");
-    }, 1000); // delay for UX feedback
+    }, 1000); 
   };
 
   const filteredNotes = showAllNotes.filter((note) =>
