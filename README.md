@@ -2,6 +2,8 @@ AI Note App
 
 A simple, responsive Note-Taking Application that integrates AI features like text summarization, improvement, and tag generation. Built with Next.js for the frontend, and includes AI integration for enhanced productivity (buttons for AI features like summary, improvement, and tags are provided but are currently non-functional due to limitations with free AI APIs).
 
+    Live Link: https://ainoteapp-7hkx.vercel.app/
+
 Features
 
 User Authentication: Register, Login, and maintain user sessions.
